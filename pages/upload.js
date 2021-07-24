@@ -35,17 +35,6 @@ const Upload = () => {
       headers: { 'content-type': 'multipart/form-data' },
     };
 
-    // const upload = await axios
-    //   .post('http://localhost:3001/api/image-upload', formData)
-    //   .then((response) => {
-    //     console.log(response);
-    //   })
-    //   .catch((error) => {
-    //     console.log('Error in axios', error.response.data);
-    //   });
-
-    // console.log(upload);
-
     uploadImage(formData)
       .then((uploadedImage) => {
         console.log('Passed the upload');
@@ -76,13 +65,9 @@ const Upload = () => {
       </div>
       <div className='row text-center text-lg-left'>
         {images.map((image) => (
-          <div class='col-lg-3 col-md-4 col-6'>
-            <a
-              key={image.cloudinaryId}
-              href={image.url}
-              target='_blank'
-              className='d-block mb-4 h-100'>
-              <img class='img-fluid img-thumbnail' src={image.url} alt='' />
+          <div className='col-lg-3 col-md-4 col-6' key={image.cloudinaryId}>
+            <a href={image.url} target='_blank' className='d-block mb-4 h-100'>
+              <img className='img-fluid img-thumbnail' src={image.url} alt='' />
             </a>
           </div>
         ))}
