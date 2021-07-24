@@ -19,7 +19,8 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
+app.use(express.json());
 app.use(cors(corsOptions));
 
 app.get('/api/test', (req, res) => {
@@ -143,7 +144,7 @@ const singleUpload = upload.single('image');
 const singleUploadCtrl = (req, res, next) => {
   singleUpload(req, res, (error) => {
     if (error) {
-      return res.sendApiError({ title: 'Upload Error', detail: error.message });
+      return res.json({ title: 'Upload Error', detail: error.message });
     }
 
     next();
@@ -151,6 +152,7 @@ const singleUploadCtrl = (req, res, next) => {
 };
 
 app.post('/api/image-upload', singleUploadCtrl, async (req, res) => {
+  console.log('Am in the api');
   try {
     if (!req.file) {
       throw new Error('Image is not presented!');
