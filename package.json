@@ -32,7 +32,7 @@
     "react-dom": "^16.13.1",
     "react-hook-form": "^5.7.2",
     "restful-react": "^13.0.0",
-    "sass": "^1.26.8"
+    "sass": "^1.63.3"
   },
   "proxy": "http://localhost:3001",
   "devDependencies": {
